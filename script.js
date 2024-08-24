@@ -47,4 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    //Add toggle function
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('hidden'); // Toggle the menu visibility
+        navToggle.textContent = navMenu.classList.contains('hidden') ? '☰' : '✖'; // Change icon between hamburger and close (X)
+    });
+
+    // Close the menu when a link is clicked (optional)
+    navMenu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { // Check if a link was clicked
+            navMenu.classList.add('hidden'); // Hide the menu
+            navToggle.textContent = '☰'; // Revert to hamburger icon
+        }
+    });
+
 });
